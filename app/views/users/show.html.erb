@@ -1,0 +1,51 @@
+<%= link_to "CREATE New ToDo", new_todo_for_user_path(@user.id), :class => 'btn btn-small btn-success' %>
+<%= link_to "Go back to Main Page", users_path, :class => 'btn btn-small btn-primary' %>
+<h4>User Details: </h4>
+    <%= @user.name.upcase %> <br>
+   [ <small> <%= @user.sex.capitalize %> |
+    <%= @user.phone %> </small>]     <br>
+<hr>
+
+
+<h4> To Do List: </h4>
+
+<head>
+  <style>
+      table, td, th
+      {
+          border:2px solid blue;
+      }
+      th
+      {
+          background-color: royalblue;
+          color:white;
+      }
+      td, th
+      {
+          padding:5px;
+      }
+      tr:nth-child(even) {background-color: white}
+      tr:nth-child(odd) {background-color: lightcyan}
+  </style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Remarks</th>
+    <th> ACTION </th>
+    <th> ACTION </th>
+  </tr>
+
+  <% @user.todos.each do |todo| %>
+      <tr>
+        <td><%= todo.name.titleize %></td>
+        <td><%= todo.remarks.titleize %></td>
+
+        <td> <%= link_to "EDIT", edit_todo_path(todo.id), :class => 'btn btn-mini btn-warning' %> </td>
+        <td> <%= link_to "DELETE", users_path, :class => 'btn btn-mini btn-danger' %> </td>
+      </tr>
+  <% end %>
+</table>
+</body>

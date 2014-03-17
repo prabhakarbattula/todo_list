@@ -1,0 +1,48 @@
+
+<%= link_to "Create New User", new_user_path, :class => 'btn btn-small btn-success' %>
+<hr>
+<h4> Displaying Users </h4>
+
+<head>
+  <style>
+
+      table, td, th
+      {
+          border:2px solid blue;
+      }
+      th
+      {
+          background-color: royalblue;
+          color:white;
+      }
+      td, th
+      {
+          padding:5px;
+      }
+      tr:nth-child(even) {background-color: white}
+      tr:nth-child(odd) {background-color: lightcyan}
+  </style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Phone</th>
+    <th> ACTION </th>
+    <th> ACTION </th>
+
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.name.upcase, user_path(user.id) %></td>
+    <td><%= user.sex.capitalize %></td>
+    <td><%= user.phone %></td>
+    <td> <%= link_to "EDIT", edit_user_path(user.id), :class => 'btn btn-mini btn-warning' %> </td>
+     <td> <%= link_to "DELETE", user_path(user.id), method: :delete, :class => 'btn btn-mini btn-danger' %> </td>
+  </tr>
+  <% end %>
+</table>
+</body>

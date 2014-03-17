@@ -1,0 +1,11 @@
+<%= form_for @todo, :url => todos_path do |todo| %>
+
+            <%= todo.hidden_field :user_id %>
+    Name :  <%= todo.text_field :name  %> <br>
+    Remarks  :  <%= todo.text_area :remarks  %>  <br>
+    <%= todo.hidden_field :status %>
+    <br>
+    <%= todo.submit "Create New ToDo", :class => 'btn btn-small btn-success' %>
+    <%= link_to "Go back to Main Page", users_path, :class => 'btn btn-small btn-primary' %>
+
+<% end %>

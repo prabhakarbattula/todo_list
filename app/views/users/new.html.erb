@@ -1,0 +1,9 @@
+<%= form_for @user, :url => users_path do |user| %>
+
+    Name :  <%= user.text_field :name  %> <br>
+    Sex  :  <%= user.text_field :sex  %>  <br>
+    Phone : <%= user.text_field :phone  %>    <br><br>
+    <%= user.submit "Create New User", :class => 'btn btn-small btn-success' %>
+    <%= link_to "Go back to Main Page", users_path, :class => 'btn btn-small btn-primary' %>
+
+<% end %>
